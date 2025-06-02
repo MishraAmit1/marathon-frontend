@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and sensitive areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /login/
+Disallow: /dashboard/
+
+# Allow important files
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Sitemap location
+Sitemap: https://vapimarathon.netlify.app/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
