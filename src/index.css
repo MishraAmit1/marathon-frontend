@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .animate-slide {
+        animation: slide 25s linear infinite;
+        /* Speed ko 20s se 25s kiya, adjust kar sakta hai */
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+            /* -50% taaki duplicate content seamless loop de */
+        }
+    }
+}
