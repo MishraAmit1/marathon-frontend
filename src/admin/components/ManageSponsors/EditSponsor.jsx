@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useDarkMode } from "../contexts/DarkModeContext";
-import { API_BASE_URL } from "../../../config/api.js";
 
 const EditSponsor = () => {
   const { id } = useParams();
@@ -23,7 +22,7 @@ const EditSponsor = () => {
     if (id && !location.state) {
       const fetchSponsor = async () => {
         try {
-          const res = await axios.get(`${API_BASE_URL}/sponsor/${id}`, {
+          const res = await axios.get(`http://localhost:5000/sponsor/${id}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
@@ -61,7 +60,7 @@ const EditSponsor = () => {
     if (sponsorImage) data.append("sponsor_image", sponsorImage);
 
     try {
-      await axios.put(`${API_BASE_URL}/sponsor/update/${id}`, data, {
+      await axios.put(`http://localhost:5000/sponsor/update/${id}`, data, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       navigate("/sponsors");
@@ -146,7 +145,7 @@ const EditSponsor = () => {
           />
           {sponsor.sponsor_image && (
             <img
-              src={`${API_BASE_URL}${sponsor.sponsor_image}`}
+              src={`http://localhost:5000${sponsor.sponsor_image}`}
               alt="Current sponsor"
               className="mt-2 w-32 h-32 object-cover"
             />
